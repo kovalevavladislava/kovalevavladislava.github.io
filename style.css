@@ -149,6 +149,32 @@ body {
   font-weight: 500;
   color: #555;
 }
+.links__link[data-tooltip] {
+  position: relative;
+}
+.links__link[data-tooltip]::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #333;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 14px;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.links__link[data-tooltip]:hover::after {
+  opacity: 1;
+  visibility: visible;
+  bottom: calc(100% + 5px);
+}
 
 footer {
   margin: 20px 0;
